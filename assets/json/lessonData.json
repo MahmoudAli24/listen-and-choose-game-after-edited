@@ -1,0 +1,14 @@
+[
+  {
+    "audioSrc": "audio1.mp3",
+    "picture1Src": "picture1.jpg",
+    "picture2Src": "picture2.jpg",
+    "correctAnswer": 1
+  },
+  {
+    "audioSrc": "audio2.mp3",
+    "picture1Src": "picture3.jpg",
+    "picture2Src": "picture4.jpg",
+    "correctAnswer": 0
+  }
+]

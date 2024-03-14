@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Bootstrap CDN-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!--Icons  CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="backGroundImageWrapper"></div>
+      <div class="controls">
+        <div
+          class="controlWrapper d-flex justify-content-between align-items-center px-3 mt-2"
+        >
+          <div class="control">
+            <span class="clickable" id="backControl">
+              <img
+                src="./assets/icons/ArrowControl.svg"
+                alt="left"
+                class="img-fluid"
+              />
+            </span>
+            <span class="clickable">
+              <img
+                src="./assets/icons/ExclamationMark.svg"
+                alt="Exclamation"
+                class="img-fluid"
+              />
+            </span>
+          </div>
+          <div
+            class="score position-relative d-flex align-items-center justify-content-center"
+          >
+            <span class="score__progress">
+              <span> </span>
+            </span>
+            <span>
+              <img src="./assets/icons/Score.svg" alt="Score" />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="gameWrapper position-relative"></div>
+      <div class="result">
+        <div
+          class="result__content position-absolute top-50 start-50 translate-middle scale-in-center"
+        >
+          <div>
+            <img src="./assets/images/resultBG.svg" alt="1" class="img-fluid" />
+          </div>
+          <div class="w-100 h-100 position-absolute top-0 left-0">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column"
+            >
+              <img
+                src="./assets/images/pocy.svg"
+                alt="1"
+                class="img-fluid w-75 d-block"
+              />
+              <img
+                src="./assets/images/correctAnswer.svg"
+                alt="1"
+                class="img-fluid w-75 d-block"
+              />
+            </div>
+            <div
+              class="btnsControl d-flex justify-content-between align-items-center mx-5"
+            >
+              <span class="clickable">
+                <img
+                  src="./assets/images/arrowLeft.svg"
+                  alt="1"
+                  class="img-fluid"
+                />
+              </span>
+              <span class="clickable">
+                <img
+                  src="./assets/images/arrowRight.svg"
+                  alt="1"
+                  class="img-fluid"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="backdrop"></div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
