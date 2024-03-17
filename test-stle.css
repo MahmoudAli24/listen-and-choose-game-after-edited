@@ -1,0 +1,112 @@
+
+.screen__one__content {
+  /* width: 80%;
+  height: 70%; */
+  padding: 40px;
+  margin: 0 auto;
+  border: #888888 8px solid;
+  border-radius: 33px;
+  background-color: #fff;
+  -webkit-border-radius: 33px;
+  -moz-border-radius: 33px;
+  -ms-border-radius: 33px;
+  -o-border-radius: 33px;
+}
+.screen__one__content .images {
+  width: inherit;
+  gap: 150px;
+}
+.screen__one__content .images div {
+  background-color: #edfbff;
+  padding: 50px 30px;
+  border-radius: 30px;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.screen__one__content .circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f9dc80;
+  transition: 0.6s;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+}
+.screen__one__content .images {
+  width: inherit;
+  height: inherit;
+  padding: 60px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+.screen__one .mic__icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #f9dc80;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+}
+.screen__one .mic__icon img {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  .screen__one__content .images {
+    gap: 50px;
+  }
+  .screen__one__content .images div {
+    padding: 30px 20px;
+  }
+  .screen__one__content {
+    margin-top: 20px;
+    padding: 50px;
+  }
+  .screen__one__content .circle {
+    width: 50px;
+    height: 50px;
+  }
+  .screen__one .mic__icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+/* End Screen One */
+/* Start Screen Two */
+/* .screen__two {
+  width: calc(100% - 230px);
+  height: calc(100% - 100px);
+  margin: 0 auto;
+  display: none;
+} */
+.screen__two__content .images {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 60px 30px;
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  .screen__two__content .images {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+/* End Screen Two */
+/* Start Screen  Three */
+.screen__three__content .images {
+  width: 75%;
+  padding-top: 90px;
+  margin: 0 auto;
+}

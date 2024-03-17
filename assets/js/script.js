@@ -1,123 +1,98 @@
-let gameInfo = [
-  {
-    id: 1,
-    backgroundImgSrc: './assets/images/ScreenOne/BACKGROUND.svg',
-    backgroundImgSrcSmall: './assets/images/ScreenOne/bg.png',
-    questionHtml: `<div class="screen__one position-relative">
-    <div class="screen__one__content">
-      <div class="images">
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenOne/img-1.svg" alt="1" data-answer="0" class="img-fluid" />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenOne/img-2.svg" alt="2" data-answer="1" class="img-fluid" />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-      </div>
-    </div>
-    <div class="mic__icon position-absolute top-0 start-50 bg-white d-flex justify-content-center align-items-center scale-in-top">
-      <img src="./assets/images/ScreenOne/mic.svg" alt="mic" />
-    </div>
-  </div>`,
-    correctAnswer: 1
-  }, {
-    id: 2,
-    backgroundImgSrc: './assets/images/ScreenTwo/bg.png',
-    backgroundImgSrcSmall: './assets/images/ScreenTwo/bg-small.svg',
-    audioSrc: './assets/audio/ScreenTwo/audio.mp3',
-    correctAnswer: 1,
-    questionHtml: `<div class="screen__two position-relative">
-    <div class="screen__two__content">
-      <div class="images">
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenTwo/img-0.svg" alt="1" data-answer="0" class="img-fluid clickable " />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-        <div class="position-relative scale-in-center">
-        <img src="./assets/images/ScreenTwo/mic.svg" alt="Mic"class="img-fluid" />
-        </div>
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenTwo/img-1.svg" alt="2" data-answer="1" class="img-fluid clickable " />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-      </div>
-    `
-  }, {
-    id: 3,
-    backgroundImgSrc: './assets/images/ScreenThree/bg.svg',
-    backgroundImgSrcSmall: './assets/images/ScreenThree/bg-small.svg',
-    questionHtml: `<div class="screen__three position-relative">
-    <div class="screen__three__content">
-      <div class="images d-flex algin-items-center justify-content-center">
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenThree/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable " />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenThree/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable " />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-        <div class="position-relative scale-in-center">
-          <img src="./assets/images/ScreenThree/img-3.svg" alt="3" data-answer="2" class="img-fluid clickable " />
-          <span class="circle position-absolute top-0 start-50 translate-middle"></span>
-        </div>
-      </div>
-    </div>
-    `,
-    correctAnswer: 2
-  }
-];
-
+let micIcon = document.querySelectorAll('.mic__icon img');
+let images = document.querySelectorAll('.images img');
 let currentQuestionIndex = 0;
-let gameWrapper = document.querySelector('.gameWrapper');
+let answer = 0;
 let resultWrapper = document.querySelector('.result');
 let backdrop = document.querySelector('.backdrop');
-let screenBackground = document.querySelector('.backGroundImageWrapper');
 let backControl = document.querySelector('#backControl');
+let ExclamationMark = document.querySelector('.ExclamationMark');
+let ExclamationMarkText = document.querySelector('.ExclamationMarkText');
+let progress = document.querySelector('.score__progress > span');
+let audio = document.getElementById('success');
 
-// Function to display the question
-function displayQuestion(index) {
-  let question = gameInfo[index];
-  console.log(question);
-  let backgroundImgSrc = window.matchMedia('(max-width: 768px) and (orientation: landscape)').matches ?
-    question.backgroundImgSrcSmall :
-    question.backgroundImgSrc;
-  screenBackground.innerHTML = `
-    <img src="${backgroundImgSrc}" alt="background" />
-  `;
-  gameWrapper.innerHTML = question.questionHtml;
-
-  // Add event listeners to images
-  let images = gameWrapper.querySelectorAll('.images img');
-  images.forEach(img => {
-    img.addEventListener('click', function () {
-      let selectedAnswer = parseInt(this.getAttribute('data-answer'));
-      if (selectedAnswer === question.correctAnswer) {
-        this.nextElementSibling.style.backgroundColor = 'green';
-        recordAnswer();
-      } else {
-        this.nextElementSibling.style.backgroundColor = 'red';
-        setTimeout(() => {
-          this.nextElementSibling.style.backgroundColor = '';
-        }, 1000);
-      }
-    });
+micIcon.forEach((icon) => {
+  // ADD Class to the mic icon just one time
+  icon.addEventListener('click', function () {
+    icon.classList.add('jello-vertical');
+    audio.play();
+    setTimeout(() => {
+      icon.classList.remove('jello-vertical');
+    }, 1000);
   });
-}
+});
+
+$('.owl-carousel').owlCarousel({
+  items: 1,
+  margin: 10,
+  autoHeight: true,
+  scrollPerPage: false,
+  mouseDrag: false,
+  pullDrag: false,
+  touchDrag: false,
+  animateIn: 'animate__flipInX',
+});
+
+let slideCount = document.querySelectorAll('.owl-item').length;
+
+let owl = $('.owl-carousel');
+owl.owlCarousel();
+// Go to the next item
+$('.owl-next').click(function () {
+  owl.trigger('next.owl.carousel');
+})
+// Go to the previous item
+$('.owl-prev').click(function () {
+
+  owl.trigger('prev.owl.carousel', [300]);
+})
+
+
+// When Hover on the ExclamationMark show the ExclamationMarkText for 1 second
+ExclamationMark.addEventListener('mouseover', function () {
+  ExclamationMarkText.style.display = 'block';
+  ExclamationMarkText.style.opacity = '1';
+  ExclamationMarkText.style.visibility = 'visible';
+  setTimeout(() => {
+    ExclamationMarkText.style.display = 'none';
+    ExclamationMarkText.style.opacity = '0';
+    ExclamationMarkText.style.visibility = 'hidden';
+  }, 6000);
+});
+
+images.forEach((img) => {
+  img.addEventListener('click', function () {
+    let selectedAnswer = parseInt(this.getAttribute('data-answer'));
+    if (selectedAnswer === 1) {
+      this.nextElementSibling.style.backgroundColor = 'green';
+      answer++;
+      currentQuestionIndex++;
+      progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
+      console.log(progress.style.width);
+      audio.play();
+      setTimeout(() => {
+        owl.trigger('next.owl.carousel');
+      }, 1000);
+      if (currentQuestionIndex === slideCount) {
+        displayResult();
+      }
+    } else {
+      this.nextElementSibling.style.backgroundColor = 'red';
+      setTimeout(() => {
+        this.nextElementSibling.style.backgroundColor = '';
+      }, 1000);
+    }
+  });
+});
+
+// Event listener for back control
+backControl.addEventListener('click', function () {
+  owl.trigger('prev.owl.carousel');
+});
 
 // Event listener for backdrop
 backdrop.addEventListener('click', function () {
   this.style.display = 'none'; // Hide the backdrop
   resultWrapper.style.display = 'none'; // Hide the result
-});
-
-// Event listener for back control
-backControl.addEventListener('click', function () {
-  if (currentQuestionIndex > 0) {
-    currentQuestionIndex--;
-    displayQuestion(currentQuestionIndex);
-  }
 });
 
 // Function to display the result
@@ -126,18 +101,8 @@ function displayResult() {
   backdrop.style.display = 'block'; // Show the backdrop
 }
 
-// Function to record the answer
-function recordAnswer() {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < gameInfo.length) {
-    // wait for 1 second before displaying the next question
-    setTimeout(() => {
-      displayQuestion(currentQuestionIndex);
-    }, 1000);
-  } else {
+owl.on('changed.owl.carousel', function (event) {
+  if (event.item.index === slideCount - 1 && answer === slideCount) {
     displayResult();
   }
-}
-
-// Start the game
-displayQuestion(currentQuestionIndex);
+});
