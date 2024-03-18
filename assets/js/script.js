@@ -29,7 +29,8 @@ $('.owl-carousel').owlCarousel({
   mouseDrag: false,
   pullDrag: false,
   touchDrag: false,
-  animateIn: 'animate__flipInX',
+  animateIn: 'animate__zoomIn',
+  animateOut: 'animate__fadeOut',
 });
 
 let slideCount = document.querySelectorAll('.owl-item').length;
@@ -42,10 +43,8 @@ $('.owl-next').click(function () {
 })
 // Go to the previous item
 $('.owl-prev').click(function () {
-
-  owl.trigger('prev.owl.carousel', [300]);
+  owl.trigger('prev.owl.carousel');
 })
-
 
 // When Hover on the ExclamationMark show the ExclamationMarkText for 1 second
 ExclamationMark.addEventListener('mouseover', function () {
@@ -62,17 +61,19 @@ ExclamationMark.addEventListener('mouseover', function () {
 images.forEach((img) => {
   img.addEventListener('click', function () {
     let selectedAnswer = parseInt(this.getAttribute('data-answer'));
-    if (selectedAnswer === 1) {
+    if (selectedAnswer === 1 && !this.classList.contains('answered')) {
       this.nextElementSibling.style.backgroundColor = 'green';
+      this.classList.add('answered');
       answer++;
       currentQuestionIndex++;
-      progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
-      console.log(progress.style.width);
+      if (currentQuestionIndex < slideCount) {
+        progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
+      }
       audio.play();
-      setTimeout(() => {
-        owl.trigger('next.owl.carousel');
-      }, 1000);
-      if (currentQuestionIndex === slideCount) {
+
+      owl.trigger('next.owl.carousel');
+
+      if (answer === slideCount) {
         displayResult();
       }
     } else {
@@ -83,6 +84,8 @@ images.forEach((img) => {
     }
   });
 });
+
+
 
 // Event listener for back control
 backControl.addEventListener('click', function () {

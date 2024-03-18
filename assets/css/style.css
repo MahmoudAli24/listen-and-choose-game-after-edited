@@ -7,8 +7,21 @@
 body {
   margin: 0;
 }
+h1{
+  font-family: "Modak", system-ui;
+  font-size:120px;
+  color: #FF9418;
+}
 .clickable {
   cursor: pointer;
+}
+.controls{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    z-index: 4;
 }
 .backdrop {
   position: fixed;
@@ -25,7 +38,7 @@ body {
   white-space: nowrap;
   background-color: #fff;
   top: 8px;
-  left: 154px;
+  left: 100%;
   padding: 15px 10px;
   border-radius: 10px;
   z-index: 0;
@@ -129,6 +142,17 @@ body {
   object-fit: cover;
   object-position: center;
 }
+.owl-carousel{
+  position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-30%);
+    display: flex;
+    align-items: center;
+}
+.owl-carousel>*{
+  overflow: visible;
+}
 .slide {
   width: fit-content;
   height: fit-content;
@@ -174,7 +198,7 @@ body {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
-.screen__one__content .circle {
+ .circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -218,7 +242,7 @@ body {
     margin-top: 0px;
     padding: 0px;
   }
-  .screen__one__content .circle {
+   .circle {
     width: 50px;
     height: 50px;
   }
@@ -228,11 +252,27 @@ body {
   }
 }
 /* End Screen One */
-
-.owl-carousel {
-  height: 70%;
-  width: 100%;
+/* Start Game Four */
+.mic-four{
+  bottom: -56px;
+  left: 8%;
+  width: 110px;
+  height: auto;
 }
+.mic-four img{
+  width: 100%;
+  height: 100%;
+}
+/* End Game Four */
+/* Start Game Five */
+.result__content_five{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+/* Start Game Five */
 
 .owl-nav .owl-prev,
 .owl-nav .owl-next {
