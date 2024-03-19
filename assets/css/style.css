@@ -7,21 +7,21 @@
 body {
   margin: 0;
 }
-h1{
+h1 {
   font-family: "Modak", system-ui;
-  font-size:120px;
-  color: #FF9418;
+  font-size: 120px;
+  color: #ff9418;
 }
 .clickable {
   cursor: pointer;
 }
-.controls{
+.controls {
   position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: max-content;
-    z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  z-index: 4;
 }
 .backdrop {
   position: fixed;
@@ -59,6 +59,20 @@ h1{
 
 .result .result__content {
   z-index: 4;
+}
+
+.result__exit {
+  width: 50px;
+  height: 50px;
+  background-color: #f9dc80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: #edfbff;
+  cursor: pointer;
 }
 
 .backGroundImageWrapper img {
@@ -142,15 +156,15 @@ h1{
   object-fit: cover;
   object-position: center;
 }
-.owl-carousel{
+.owl-carousel {
   position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-30%);
-    display: flex;
-    align-items: center;
+  top: 50%;
+  left: 0;
+  transform: translateY(-30%);
+  display: flex;
+  align-items: center;
 }
-.owl-carousel>*{
+.owl-carousel > * {
   overflow: visible;
 }
 .slide {
@@ -198,7 +212,7 @@ h1{
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
- .circle {
+.circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -242,7 +256,7 @@ h1{
     margin-top: 0px;
     padding: 0px;
   }
-   .circle {
+  .circle {
     width: 50px;
     height: 50px;
   }
@@ -253,19 +267,19 @@ h1{
 }
 /* End Screen One */
 /* Start Game Four */
-.mic-four{
+.mic-four {
   bottom: -56px;
   left: 8%;
   width: 110px;
   height: auto;
 }
-.mic-four img{
+.mic-four img {
   width: 100%;
   height: 100%;
 }
 /* End Game Four */
 /* Start Game Five */
-.result__content_five{
+.result__content_five {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

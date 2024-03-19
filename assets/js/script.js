@@ -9,6 +9,7 @@ let ExclamationMark = document.querySelector('.ExclamationMark');
 let ExclamationMarkText = document.querySelector('.ExclamationMarkText');
 let progress = document.querySelector('.score__progress > span');
 let audio = document.getElementById('success');
+let resultExit = document.querySelector('.result__exit');
 
 micIcon.forEach((icon) => {
   // ADD Class to the mic icon just one time
@@ -38,13 +39,13 @@ let slideCount = document.querySelectorAll('.owl-item').length;
 let owl = $('.owl-carousel');
 owl.owlCarousel();
 // Go to the next item
-$('.owl-next').click(function () {
-  owl.trigger('next.owl.carousel');
-})
-// Go to the previous item
-$('.owl-prev').click(function () {
-  owl.trigger('prev.owl.carousel');
-})
+// $('.owl-next').click(function () {
+//   owl.trigger('next.owl.carousel');
+// })
+// // Go to the previous item
+// $('.owl-prev').click(function () {
+//   owl.trigger('prev.owl.carousel');
+// })
 
 // When Hover on the ExclamationMark show the ExclamationMarkText for 1 second
 ExclamationMark.addEventListener('mouseover', function () {
@@ -86,11 +87,15 @@ images.forEach((img) => {
 });
 
 
+resultExit.addEventListener('click', function () {
+  resultWrapper.style.display = 'none';
+  backdrop.style.display = 'none';
+});
 
 // Event listener for back control
-backControl.addEventListener('click', function () {
-  owl.trigger('prev.owl.carousel');
-});
+// backControl.addEventListener('click', function () {
+//   owl.trigger('prev.owl.carousel');
+// });
 
 // Event listener for backdrop
 backdrop.addEventListener('click', function () {
