@@ -4,17 +4,68 @@
   padding: 0;
   overflow: visible;
 }
+
 body {
   margin: 0;
 }
-h1 {
+
+.listen, .and, .choose {
   font-family: "Modak", system-ui;
-  font-size: 120px;
+  font-size: 200px;
   color: #ff9418;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 5px;
 }
+
+.and {
+  color: #6A847E;
+}
+
+.choose {
+  color: #6CB6EB;
+  font-size: 170px;
+  text-align: center;
+  position: relative;
+  bottom: 137px;
+  left: 0;
+}
+
+.listen::before, .and::before {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  z-index: -1;
+  content: "Listen";
+  font-size: 220px;
+  color: #fff;
+  letter-spacing: -5px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.and::before {
+  content: "&";
+  left: 45%;
+}
+
+.choose::before {
+  content: "Choose";
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  z-index: -1;
+  font-size: 193px;
+  color: #fff;
+  letter-spacing: -8px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
 .clickable {
   cursor: pointer;
 }
+
 .controls {
   position: absolute;
   top: 0;
@@ -23,15 +74,19 @@ h1 {
   height: max-content;
   z-index: 4;
 }
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-  z-index: 3; /* ensure it's on top of other content */
-  display: none; /* initially hidden */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* semi-transparent black */
+  z-index: 3;
+  /* ensure it's on top of other content */
+  display: none;
+  /* initially hidden */
 }
 
 .ExclamationMarkText {
@@ -106,7 +161,7 @@ h1 {
   -o-transform: translateY(-50%);
 }
 
-.score__progress > span {
+.score__progress>span {
   display: block;
   width: 0%;
   height: 80%;
@@ -119,6 +174,7 @@ h1 {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+
 .score__progress__img {
   z-index: 0;
 }
@@ -128,25 +184,34 @@ h1 {
     width: 50px;
     height: 50px;
   }
+
   .score__progress {
     height: 26px;
     width: 120px;
     right: 11px;
   }
+
   .score img {
     width: 30px;
     height: 51px;
   }
+
   .result .result__content {
     width: 300px;
   }
 }
+
 .gameWrapper {
   height: 100%;
   width: 100%;
   z-index: 0;
 }
-.gameWrapper .bg img {
+
+.gameWrapper .bg {
+  display: none;
+}
+
+.gameWrapper .bg img, .gameWrapper .start-game-bg img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -156,6 +221,7 @@ h1 {
   object-fit: cover;
   object-position: center;
 }
+
 .owl-carousel {
   position: absolute;
   top: 50%;
@@ -164,14 +230,26 @@ h1 {
   display: flex;
   align-items: center;
 }
-.owl-carousel > * {
+
+.owl-carousel>* {
   overflow: visible;
 }
+
 .slide {
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
 }
+
+.start-game-icon {
+  position: absolute;
+  left: 83%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 100;
+  cursor: pointer;
+}
+
 /* Start Screen One */
 .screen__one {
   width: 100%;
@@ -197,10 +275,12 @@ h1 {
   -ms-border-radius: 33px;
   -o-border-radius: 33px;
 }
+
 .screen__one__content .images {
   width: inherit;
   gap: 150px;
 }
+
 .screen__one__content .images div {
   background-color: #edfbff;
   padding: 50px 30px;
@@ -212,6 +292,7 @@ h1 {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
+
 .circle {
   width: 70px;
   height: 70px;
@@ -224,6 +305,7 @@ h1 {
   -ms-transition: 0.6s;
   -o-transition: 0.6s;
 }
+
 .screen__one__content .images {
   width: inherit;
   height: inherit;
@@ -233,6 +315,7 @@ h1 {
   justify-content: space-around;
   gap: 20px;
 }
+
 .screen__one .mic__icon {
   width: 90px;
   height: 90px;
@@ -240,31 +323,38 @@ h1 {
   background-color: #f9dc80;
   box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 }
+
 .screen__one .mic__icon img {
   width: 100%;
   height: 100%;
 }
+
 @media (max-width: 1024px) and (orientation: landscape) {
   .screen__one__content .images {
     gap: 50px;
     padding: 0;
   }
+
   .screen__one__content .images div {
     padding: 30px 20px;
   }
+
   .screen__one__content {
     margin-top: 0px;
     padding: 0px;
   }
+
   .circle {
     width: 50px;
     height: 50px;
   }
+
   .screen__one .mic__icon {
     width: 70px;
     height: 70px;
   }
 }
+
 /* End Screen One */
 /* Start Game Four */
 .mic-four {
@@ -273,10 +363,12 @@ h1 {
   width: 110px;
   height: auto;
 }
+
 .mic-four img {
   width: 100%;
   height: 100%;
 }
+
 /* End Game Four */
 /* Start Game Five */
 .result__content_five {
@@ -286,6 +378,7 @@ h1 {
   width: 100%;
   height: 100%;
 }
+
 /* Start Game Five */
 
 .owl-nav .owl-prev,
@@ -298,6 +391,7 @@ h1 {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+
 .owl-nav .owl-prev {
   position: absolute;
   top: 50%;
@@ -318,8 +412,7 @@ h1 {
 
 .scale-in-center {
   animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -webkit-animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  -webkit-animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .scale-in-top {
@@ -337,6 +430,7 @@ h1 {
     transform: scale(0);
     opacity: 1;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -352,6 +446,7 @@ h1 {
     -ms-transform: translate(-50%, -50%) scale(0);
     -o-transform: translate(-50%, -50%) scale(0);
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -367,56 +462,69 @@ h1 {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
+
   30% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
     transform: scale3d(0.75, 1.25, 1);
   }
+
   40% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
     transform: scale3d(1.25, 0.75, 1);
   }
+
   50% {
     -webkit-transform: scale3d(0.85, 1.15, 1);
     transform: scale3d(0.85, 1.15, 1);
   }
+
   65% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
     transform: scale3d(1.05, 0.95, 1);
   }
+
   75% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
     transform: scale3d(0.95, 1.05, 1);
   }
+
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 }
+
 @keyframes jello-vertical {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
+
   30% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
     transform: scale3d(0.75, 1.25, 1);
   }
+
   40% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
     transform: scale3d(1.25, 0.75, 1);
   }
+
   50% {
     -webkit-transform: scale3d(0.85, 1.15, 1);
     transform: scale3d(0.85, 1.15, 1);
   }
+
   65% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
     transform: scale3d(1.05, 0.95, 1);
   }
+
   75% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
     transform: scale3d(0.95, 1.05, 1);
   }
+
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);

@@ -10,6 +10,11 @@ let ExclamationMarkText = document.querySelector('.ExclamationMarkText');
 let progress = document.querySelector('.score__progress > span');
 let audio = document.getElementById('success');
 let resultExit = document.querySelector('.result__exit');
+let startGameBg = document.querySelector('.start-game-bg');
+let gameBg = document.querySelector('.bg');
+let startIcon = document.querySelector('.start-game-icon');
+
+
 
 micIcon.forEach((icon) => {
   // ADD Class to the mic icon just one time
@@ -38,10 +43,22 @@ let slideCount = document.querySelectorAll('.owl-item').length;
 
 let owl = $('.owl-carousel');
 owl.owlCarousel();
+
+owl.on('changed.owl.carousel', function (event) {
+  console.log(event.item.index);
+  if (event.item.index > 0) {
+    startGameBg.style.display = 'none';
+    gameBg.style.display = 'block';
+  }
+});
+
+startIcon.addEventListener('click', function () {
+  owl.trigger('next.owl.carousel');
+});
 // Go to the next item
-// $('.owl-next').click(function () {
-//   owl.trigger('next.owl.carousel');
-// })
+$('.owl-next').click(function () {
+  owl.trigger('next.owl.carousel');
+})
 // // Go to the previous item
 // $('.owl-prev').click(function () {
 //   owl.trigger('prev.owl.carousel');
@@ -71,10 +88,8 @@ images.forEach((img) => {
         progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
       }
       audio.play();
-
       owl.trigger('next.owl.carousel');
-
-      if (answer === slideCount) {
+      if (answer === slideCount - 1) {
         displayResult();
       }
     } else {
