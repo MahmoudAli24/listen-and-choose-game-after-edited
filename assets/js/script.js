@@ -9,6 +9,7 @@ let ExclamationMark = document.querySelector('.ExclamationMark');
 let ExclamationMarkText = document.querySelector('.ExclamationMarkText');
 let progress = document.querySelector('.score__progress > span');
 let audio = document.getElementById('success');
+let wrong = document.getElementById('wrong');
 let resultExit = document.querySelector('.result__exit');
 let startGameBg = document.querySelector('.start-game-bg');
 let gameBg = document.querySelector('.bg');
@@ -94,6 +95,7 @@ images.forEach((img) => {
       }
     } else {
       this.nextElementSibling.style.backgroundColor = 'red';
+      wrong.play();
       setTimeout(() => {
         this.nextElementSibling.style.backgroundColor = '';
       }, 1000);
