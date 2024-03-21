@@ -58,12 +58,14 @@ startIcon.addEventListener('click', function () {
 });
 // Go to the next item
 $('.owl-next').click(function () {
-  owl.trigger('next.owl.carousel');
+  // owl.trigger('next.owl.carousel');
+  console.log('next');
 })
 // // Go to the previous item
-// $('.owl-prev').click(function () {
-//   owl.trigger('prev.owl.carousel');
-// })
+$('.owl-prev').click(function () {
+  // owl.trigger('prev.owl.carousel');
+  console.log('prev');
+})
 
 // When Hover on the ExclamationMark show the ExclamationMarkText for 1 second
 ExclamationMark.addEventListener('mouseover', function () {
@@ -77,8 +79,12 @@ ExclamationMark.addEventListener('mouseover', function () {
   }, 6000);
 });
 
+let clickEnabled = true; // Add this flag
+
 images.forEach((img) => {
   img.addEventListener('click', function () {
+    if (!clickEnabled) return; // Check if clicking is enabled
+
     let selectedAnswer = parseInt(this.getAttribute('data-answer'));
     if (selectedAnswer === 1 && !this.classList.contains('answered')) {
       this.nextElementSibling.style.backgroundColor = 'green';
@@ -89,6 +95,12 @@ images.forEach((img) => {
         progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
       }
       audio.play();
+
+      clickEnabled = false; // Disable clicking temporarily
+      setTimeout(() => {
+        clickEnabled = true; // Enable clicking after a short delay
+      }, 100);
+
       owl.trigger('next.owl.carousel');
       if (answer === slideCount - 1) {
         displayResult();
@@ -104,15 +116,17 @@ images.forEach((img) => {
 });
 
 
+
 resultExit.addEventListener('click', function () {
   resultWrapper.style.display = 'none';
   backdrop.style.display = 'none';
 });
 
 // Event listener for back control
-// backControl.addEventListener('click', function () {
-//   owl.trigger('prev.owl.carousel');
-// });
+backControl.addEventListener('click', function () {
+  // owl.trigger('prev.owl.carousel');
+  console.log('prev');
+});
 
 // Event listener for backdrop
 backdrop.addEventListener('click', function () {
@@ -131,3 +145,36 @@ owl.on('changed.owl.carousel', function (event) {
     displayResult();
   }
 });
+
+// POPUP MODAL
+
+const popupModal = document.querySelector(".popup");
+const popupOverlay = document.querySelector(".pop-overlay");
+
+const checkScreen = () => {
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+  const isMobile = window.innerWidth < 768 && isPortrait;
+  return isMobile;
+};
+
+const togglePopupVisibility = (isVisible) => {
+  popupModal.style.visibility = isVisible ? "visible" : "hidden";
+  popupOverlay.style.visibility = isVisible ? "visible" : "hidden";
+};
+
+const handleLoad = () => {
+  const isMobile = checkScreen();
+  togglePopupVisibility(isMobile);
+};
+
+const handleOrientationChange = () => {
+  const isMobile = checkScreen();
+  if (window.orientation === 90 || window.orientation === -90) {
+    togglePopupVisibility(!isMobile);
+  } else {
+    togglePopupVisibility(true);
+  }
+};
+
+window.addEventListener("load", handleLoad);
+window.addEventListener("orientationchange", handleOrientationChange);

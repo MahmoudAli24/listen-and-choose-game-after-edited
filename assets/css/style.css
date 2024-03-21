@@ -9,7 +9,9 @@ body {
   margin: 0;
 }
 
-.listen, .and, .choose {
+.listen,
+.and,
+.choose {
   font-family: "Modak", system-ui;
   font-size: 200px;
   color: #ff9418;
@@ -31,7 +33,8 @@ body {
   left: 0;
 }
 
-.listen::before, .and::before {
+.listen::before,
+.and::before {
   position: absolute;
   top: 50%;
   left: 49%;
@@ -63,9 +66,34 @@ body {
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-  .listen, .and, .choose {
+
+  .listen,
+  .and,
+  .choose {
     font-size: 80px;
   }
+  .choose{
+    bottom: 70px;
+  }
+  
+  .choose::before {
+    font-size: 90px;
+    letter-spacing: -1px;
+  }
+
+  .listen::before,
+  .and::before {
+    position: absolute;
+    top: 50%;
+    left: 49%;
+    z-index: -1;
+    font-size: 95px;
+    color: #fff;
+    letter-spacing: -3px;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+  }
+  
 }
 
 .clickable {
@@ -217,7 +245,8 @@ body {
   display: none;
 }
 
-.gameWrapper .bg img, .gameWrapper .start-game-bg img {
+.gameWrapper .bg img,
+.gameWrapper .start-game-bg img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -235,6 +264,15 @@ body {
   transform: translateY(-30%);
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .owl-carousel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 }
 
 .owl-carousel>* {
@@ -534,5 +572,84 @@ body {
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+
+/* Popup Module */
+
+.pop-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.9);
+  visibility: hidden;
+}
+
+.popup {
+  width: 70vw;
+  height: 40vh;
+  max-height: 90%;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100000;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 1rem;
+  visibility: hidden;
+}
+.popup .phone {
+  width: 2.5rem;
+  height: 4.5rem;
+  position: relative;
+  flex-shrink: 0;
+  border: 0.1875rem solid #000;
+  border-radius: 0.3125rem;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: rotatePhone;
+  animation-duration: 2s;
+}
+.popup .phone::after {
+  content: "";
+  width: 100%;
+  border-bottom: 0.1875rem solid #000;
+  position: absolute;
+  left: 0;
+  top: 9%;
+}
+.popup .phone::before {
+  content: "";
+  width: 100%;
+  border-bottom: 0.1875rem solid #000;
+  position: absolute;
+  left: 0;
+  bottom: 9%;
+}
+.popup .message {
+  font-family: DarumadropOne-Regular;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+@keyframes rotatePhone {
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+  40%,
+  60% {
+    transform: rotate(90deg);
+  }
+  95%,
+  100% {
+    transform: rotate(0deg);
   }
 }
