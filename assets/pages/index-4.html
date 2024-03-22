@@ -1,220 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Bootstrap CDN-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!--Owl Carousel CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- animate CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--Custom CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Modak&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--Bootstrap CDN-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <!--Owl Carousel CDN-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- animate CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!--Custom CSS-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../css/style.css" />
+    <title>Game Four</title>
+  </head>
 
-  <link rel="stylesheet" href="./../css/style.css" />
-  <title>Game Four</title>
-</head>
-
-<body>
-  <main>
-    <div class="controls">
-      <div class="controlWrapper d-flex justify-content-between align-items-center px-3 mt-2">
-        <div class="control position-relative">
-          <span class="clickable" id="backControl">
-            <img src="./../icons/ArrowControl.svg" alt="left" class="img-fluid" />
-          </span>
-          <span class="clickable ExclamationMark">
-            <img src="./../icons/ExclamationMark.svg" alt="Exclamation" class="img-fluid" />
-          </span>
-          <span class="ExclamationMarkText position-absolute">
-            What can you hear? Listen and tap on the right picture.
-          </span>
-        </div>
-        <div class="score position-relative d-flex align-items-center justify-content-center">
-          <span class="score__progress ps-2">
-            <span> </span>
-          </span>
-          <span class="score__progress__img">
-            <img src="./../icons/Score.svg" alt="Score" />
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="gameWrapper">
-      <!-- Start Screen One -->
-      <div class="owl-carousel">
-        <div class="slide animate__fadeIn">
-          <div class="images start-game d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-center gap-3">
-              <h1 class="listen">Listen </h1>
-              <span class="and"> &</span>
-            </div>
-            <br />
-            <h1 class="choose">Choose</h1>
-          </div>
-          <div class="start-game-icon">
-            <img src="./../images/startGame.svg" alt="img" class="img-fluid character" />
-          </div>
-        </div>
-        <div class="slide animate__fadeIn">
-          <div class="images d-flex mx-5">
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable d-block" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-3.svg" alt="2" data-answer="2" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-          </div>
-        </div>
-        <div class="slide animate__fadeIn">
-          <div class="images d-flex mx-5">
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable d-block" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-3.svg" alt="2" data-answer="2" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-          </div>
-        </div>
-        <div class="slide animate__fadeIn">
-          <div class="images d-flex mx-5">
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable d-block" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-3.svg" alt="2" data-answer="2" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-          </div>
-        </div>
-        <div class="slide animate__fadeIn">
-          <div class="images d-flex mx-5">
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable d-block" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-3.svg" alt="2" data-answer="2" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-          </div>
-        </div>
-        <div class="slide animate__fadeIn">
-          <div class="images d-flex mx-5">
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-1.svg" alt="1" data-answer="0" class="img-fluid clickable d-block" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-2.svg" alt="2" data-answer="1" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-            <div class="scale-in-center">
-              <img src="./../images/ScreenFour/img-3.svg" alt="2" data-answer="2" class="img-fluid clickable" />
-              <span class="circle position-absolute top-0 top-0 start-50 translate-middle-x"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mic__icon mic-four bg-transparent position-absolute scale-in-top">
-        <img src="./../images/ScreenFour/mic-1.png" alt="mic" />
-      </div>
-      <div class="owl-nav">
-        <div class="owl-prev clickable">
-          <svg width="30" height="45" viewBox="0 0 30 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M21.8817 0.727295L30 8.84563L16.4694 22.3762L30 35.9068L21.8817 44.0251L0.232758 22.3762L21.8817 0.727295Z"
-              fill="black" />
-          </svg>
-        </div>
-        <div class="owl-next clickable">
-          <svg width="30" height="44" viewBox="0 0 30 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.11909 0L0 8.11909L13.5318 21.6509L0 35.1827L8.11909 43.3018L29.77 21.6509L8.11909 0Z"
-              fill="black" />
-          </svg>
-        </div>
-      </div>
-      <div class="bg">
-        <img src="./../images/ScreenFour/bg.svg" alt="img" />
-      </div>
-      <div class="start-game-bg">
-        <img src="./../images/backGround.jpeg" alt="img" class="img-fluid character" />
-      </div>
-      <audio id="success" src="./../audios/audio.mp3"></audio>
-      <audio id="wrong" src="./../audios/wrong.mp3"></audio>
-      <!-- End Screen One -->
-    </div>
-    <div class="result">
-      <div class="result__content position-absolute top-50 start-50 translate-middle scale-in-center">
-        <div>
-          <img src="./../images/resultBG.svg" alt="1" class="img-fluid" />
-        </div>
-        <div class="w-100 h-100 position-absolute top-0 left-0">
-          <div class="d-flex justify-content-center align-items-center flex-column">
-            <img src="./../images/pocy.svg" alt="1" class="img-fluid w-75 d-block" />
-            <img src="./../images/correctAnswer.svg" alt="1" class="img-fluid w-75 d-block" />
-          </div>
-          <div class="btnsControl d-flex justify-content-between align-items-center mx-5">
-            <span class="clickable">
-              <img src="./../images/arrowLeft.svg" alt="1" class="img-fluid" />
+  <body>
+    <main>
+      <div class="controls">
+        <div
+          class="controlWrapper d-flex justify-content-between align-items-center px-3 mt-2"
+        >
+          <div class="control position-relative">
+            <span class="clickable" id="backControl">
+              <img
+                src="./../icons/ArrowControl.svg"
+                alt="left"
+                class="img-fluid"
+              />
             </span>
-            <span class="clickable">
-              <img src="./../images/arrowRight.svg" alt="1" class="img-fluid" />
+            <span class="clickable ExclamationMark">
+              <img
+                src="./../icons/ExclamationMark.svg"
+                alt="Exclamation"
+                class="img-fluid"
+              />
+            </span>
+            <span class="ExclamationMarkText position-absolute">
+              What can you hear? Listen and tap on the right picture.
+            </span>
+          </div>
+          <div
+            class="score position-relative d-flex align-items-center justify-content-center"
+          >
+            <span class="score__progress ps-2">
+              <span> </span>
+            </span>
+            <span class="score__progress__img">
+              <img src="./../icons/Score.svg" alt="Score" />
             </span>
           </div>
         </div>
-        <span class="position-absolute top-0 end-0 result__exit">X</span>
       </div>
-    </div>
-    <div class="backdrop"></div>
-    <div class="pop-overlay"></div>
-    <div class="popup d-flex flex-column justify-content-center align-items-center gap-3 rotate-phone">
-      <div class="message">flip the device to play</div>
-      <div class="phone"></div>
-    </div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./../js/script.js"></script>
-</body>
-
+      <div class="gameWrapper game-four vh-100 d-flex align-items-center">
+        <!-- Start Screen One -->
+        <div class="owl-carousel">
+          <div class="slide animate__fadeIn">
+            <div class="images start-game d-flex flex-column">
+              <div class="d-flex align-items-center gap-3">
+                <h1 class="listen">Listen</h1>
+                <span class="and"> &</span>
+              </div>
+              <br />
+              <h1 class="choose">Choose</h1>
+            </div>
+            <div class="start-game-icon">
+              <img
+                src="./../images/startGame.svg"
+                alt="img"
+                class="img-fluid character"
+              />
+            </div>
+          </div>
+          <div class="slide pt-50 animate__fadeIn">
+            <div
+              class="cards position-relative w-100 row container justify-content-between align-items-center"
+            >
+              <div
+                class="img-card h-100 p-3 col d-flex justify-content-center align-items-center clickable"
+              >
+                <div class="img-container h-100">
+                  <img
+                    src="./../images/ScreenFour/img-3.svg"
+                    class="w-100 h-100 object-fit-contain"
+                    alt="img-3"
+                    data-answer="0"
+                  />
+                </div>
+                <span
+                  class="circle position-absolute top-0 start-50 translate-middle"
+                ></span>
+              </div>
+              <div
+                class="img-card h-100 p-3 col d-flex justify-content-center align-items-center clickable"
+              >
+                <div class="img-container h-100">
+                  <img
+                    src="./../images/ScreenFour/img-2.svg"
+                    class="w-100 h-100 object-fit-contain"
+                    alt="img-1"
+                    data-answer="0"
+                  />
+                </div>
+                <span
+                  class="circle position-absolute top-0 start-50 translate-middle"
+                ></span>
+              </div>
+              <div
+                class="img-card h-100 p-3 col d-flex justify-content-center align-items-center clickable"
+              >
+                <div class="img-container h-100">
+                  <img
+                    src="./../images/ScreenFour/img-1.svg"
+                    class="w-100 h-100 object-fit-contain"
+                    alt="img-1"
+                    data-answer="1"
+                  />
+                </div>
+                <span
+                  class="circle position-absolute top-0 start-50 translate-middle"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="owl-nav">
+          <div class="owl-prev clickable">
+            <svg
+              width="30"
+              height="45"
+              viewBox="0 0 30 45"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21.8817 0.727295L30 8.84563L16.4694 22.3762L30 35.9068L21.8817 44.0251L0.232758 22.3762L21.8817 0.727295Z"
+                fill="black"
+              />
+            </svg>
+          </div>
+          <div class="owl-next clickable">
+            <svg
+              width="30"
+              height="44"
+              viewBox="0 0 30 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.11909 0L0 8.11909L13.5318 21.6509L0 35.1827L8.11909 43.3018L29.77 21.6509L8.11909 0Z"
+                fill="black"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="bg">
+          <img src="./../images/ScreenFour/bg.svg" alt="BACKGROUND" />
+        </div>
+        <div class="start-game-bg">
+          <img
+            src="./../images/backGround.jpeg"
+            alt="img"
+            class="img-fluid character"
+          />
+        </div>
+        <audio id="success" src="./../audios/audio.mp3"></audio>
+        <audio id="wrong" src="./../audios/wrong.mp3"></audio>
+        <!-- End Screen One -->
+      </div>
+      <div class="result">
+        <div
+          class="result__content position-absolute top-50 start-50 translate-middle scale-in-center"
+        >
+          <div>
+            <img src="./../images/resultBG.svg" alt="1" class="img-fluid" />
+          </div>
+          <div class="w-100 h-100 position-absolute top-0 left-0">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column"
+            >
+              <img
+                src="./../images/pocy.svg"
+                alt="1"
+                class="img-fluid w-75 d-block"
+              />
+              <img
+                src="./../images/correctAnswer.svg"
+                alt="1"
+                class="img-fluid w-75 d-block"
+              />
+            </div>
+            <div
+              class="btnsControl d-flex justify-content-between align-items-center mx-5"
+            >
+              <span class="clickable">
+                <img
+                  src="./../images/arrowLeft.svg"
+                  alt="1"
+                  class="img-fluid"
+                />
+              </span>
+              <span class="clickable">
+                <img
+                  src="./../images/arrowRight.svg"
+                  alt="1"
+                  class="img-fluid"
+                />
+              </span>
+            </div>
+          </div>
+          <span class="position-absolute top-0 end-0 result__exit">X</span>
+        </div>
+      </div>
+      <div class="backdrop"></div>
+      <div class="pop-overlay"></div>
+      <div
+        class="popup d-flex flex-column justify-content-center align-items-center gap-3 rotate-phone"
+      >
+        <div class="message">flip the device to play</div>
+        <div class="phone"></div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./../js/script.js"></script>
+  </body>
 </html>

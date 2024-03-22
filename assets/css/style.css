@@ -8,6 +8,9 @@
 body {
   margin: 0;
 }
+.pt-50 {
+  padding-top: 50px;
+}
 
 .listen,
 .and,
@@ -21,11 +24,11 @@ body {
 }
 
 .and {
-  color: #6A847E;
+  color: #6a847e;
 }
 
 .choose {
-  color: #6CB6EB;
+  color: #6cb6eb;
   font-size: 170px;
   text-align: center;
   position: relative;
@@ -66,16 +69,15 @@ body {
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-
   .listen,
   .and,
   .choose {
     font-size: 80px;
   }
-  .choose{
+  .choose {
     bottom: 70px;
   }
-  
+
   .choose::before {
     font-size: 90px;
     letter-spacing: -1px;
@@ -93,7 +95,6 @@ body {
     transform: translate(-50%, -50%);
     font-weight: bold;
   }
-  
 }
 
 .clickable {
@@ -126,6 +127,7 @@ body {
 .ExclamationMarkText {
   white-space: nowrap;
   background-color: #fff;
+  font-weight: bold;
   top: 8px;
   left: 100%;
   padding: 15px 10px;
@@ -195,7 +197,7 @@ body {
   -o-transform: translateY(-50%);
 }
 
-.score__progress>span {
+.score__progress > span {
   display: block;
   width: 0%;
   height: 80%;
@@ -235,12 +237,6 @@ body {
   }
 }
 
-.gameWrapper {
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
-
 .gameWrapper .bg {
   display: none;
 }
@@ -255,28 +251,6 @@ body {
   z-index: -1;
   object-fit: cover;
   object-position: center;
-}
-
-.owl-carousel {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-30%);
-  display: flex;
-  align-items: center;
-}
-
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-  .owl-carousel {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-}
-
-.owl-carousel>* {
-  overflow: visible;
 }
 
 .slide {
@@ -294,50 +268,42 @@ body {
   cursor: pointer;
 }
 
-/* Start Screen One */
-.screen__one {
-  width: 100%;
-  height: 100%;
+.gameWrapper .cards {
+  height: 57vh;
+}
+/* Start Game One */
+.gameWrapper.game-one .slide {
   position: relative;
+}
+.gameWrapper.game-one .cards {
+  border: #888888 4px solid;
+  border-radius: 33px;
+  background-color: #fff;
+  padding: 40px;
+}
+
+.gameWrapper.game-one .mic__icon {
+  width: 100px;
+  height: 100px;
+  left: 49%;
+  top: calc(60% - 28vh);
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-}
-
-.screen__one__content {
-  width: 80%;
-  height: 70%;
-  padding: 40px;
-  margin: 0 auto;
-  border: #888888 8px solid;
-  z-index: 100;
-  border-radius: 33px;
-  background-color: #fff;
-  -webkit-border-radius: 33px;
-  -moz-border-radius: 33px;
-  -ms-border-radius: 33px;
-  -o-border-radius: 33px;
-}
-
-.screen__one__content .images {
-  width: inherit;
-  gap: 150px;
-}
-
-.screen__one__content .images div {
-  background-color: #edfbff;
-  padding: 50px 30px;
-  border-radius: 30px;
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
   cursor: pointer;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
 }
 
-.circle {
+.gameWrapper.game-one .cards .img-card {
+  position: relative;
+  background-color: #edfbff;
+  border-radius: 33px;
+}
+
+.gameWrapper.game-one .cards .img-card .circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -349,57 +315,21 @@ body {
   -ms-transition: 0.6s;
   -o-transition: 0.6s;
 }
-
-.screen__one__content .images {
-  width: inherit;
-  height: inherit;
-  padding: 60px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 20px;
-}
-
-.screen__one .mic__icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: #f9dc80;
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
-}
-
-.screen__one .mic__icon img {
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 1024px) and (orientation: landscape) {
-  .screen__one__content .images {
-    gap: 50px;
-    padding: 0;
+@media (max-width: 992px) {
+  .gameWrapper.game-one .cards .img-card .circle {
+    width: 35px;
+    height: 35px;
   }
-
-  .screen__one__content .images div {
-    padding: 30px 20px;
+  .gameWrapper.game-one .cards {
+    padding: 20px;
   }
-
-  .screen__one__content {
-    margin-top: 0px;
-    padding: 0px;
-  }
-
-  .circle {
-    width: 50px;
-    height: 50px;
-  }
-
-  .screen__one .mic__icon {
+  .gameWrapper.game-one .mic__icon {
     width: 70px;
     height: 70px;
   }
 }
 
-/* End Screen One */
+/* End Game One */
 /* Start Game Four */
 .mic-four {
   bottom: -56px;
@@ -456,7 +386,8 @@ body {
 
 .scale-in-center {
   animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -webkit-animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  -webkit-animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
 }
 
 .scale-in-top {
@@ -574,7 +505,6 @@ body {
     transform: scale3d(1, 1, 1);
   }
 }
-
 
 /* Popup Module */
 

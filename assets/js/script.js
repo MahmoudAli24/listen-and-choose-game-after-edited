@@ -1,5 +1,5 @@
 let micIcon = document.querySelectorAll('.mic__icon img');
-let images = document.querySelectorAll('.images img');
+let images = document.querySelectorAll('.img-card img');
 let currentQuestionIndex = 0;
 let answer = 0;
 let resultWrapper = document.querySelector('.result');
@@ -14,19 +14,8 @@ let resultExit = document.querySelector('.result__exit');
 let startGameBg = document.querySelector('.start-game-bg');
 let gameBg = document.querySelector('.bg');
 let startIcon = document.querySelector('.start-game-icon');
+let circles = document.querySelectorAll('.circle');
 
-
-
-micIcon.forEach((icon) => {
-  // ADD Class to the mic icon just one time
-  icon.addEventListener('click', function () {
-    icon.classList.add('jello-vertical');
-    audio.play();
-    setTimeout(() => {
-      icon.classList.remove('jello-vertical');
-    }, 1000);
-  });
-});
 
 $('.owl-carousel').owlCarousel({
   items: 1,
@@ -41,9 +30,44 @@ $('.owl-carousel').owlCarousel({
 });
 
 let slideCount = document.querySelectorAll('.owl-item').length;
+console.log(slideCount);
+
+if (slideCount > 1) {
+  micIcon.forEach((icon) => {
+    icon.style.display = 'flex';
+  });
+}
 
 let owl = $('.owl-carousel');
-owl.owlCarousel();
+
+micIcon.forEach((icon) => {
+  // ADD Class to the mic icon just one time
+  icon.addEventListener('click', function () {
+    icon.classList.add('jello-vertical');
+    audio.play();
+    setTimeout(() => {
+      icon.classList.remove('jello-vertical');
+    }, 1000);
+  });
+});
+
+owl.on('changed.owl.carousel', function (event) {
+  console.log(event.item.index);
+  if (event.item.index === 0) {
+    micIcon.forEach((icon) => {
+      icon.style.display = 'none';
+    });
+  } else {
+    micIcon.forEach((icon) => {
+      icon.style.display = 'block';
+    });
+  }
+  if (event.item.index > 0) {
+    startGameBg.style.display = 'none';
+    gameBg.style.display = 'block';
+  }
+});
+
 
 owl.on('changed.owl.carousel', function (event) {
   console.log(event.item.index);
@@ -81,40 +105,41 @@ ExclamationMark.addEventListener('mouseover', function () {
 
 let clickEnabled = true; // Add this flag
 
-images.forEach((img) => {
+images.forEach((img, index) => {
   img.addEventListener('click', function () {
     if (!clickEnabled) return; // Check if clicking is enabled
 
     let selectedAnswer = parseInt(this.getAttribute('data-answer'));
-    if (selectedAnswer === 1 && !this.classList.contains('answered')) {
-      this.nextElementSibling.style.backgroundColor = 'green';
-      this.classList.add('answered');
+    if (selectedAnswer === 1) {
       answer++;
       currentQuestionIndex++;
       if (currentQuestionIndex < slideCount) {
         progress.style.width = `${(100 / slideCount) * (currentQuestionIndex + 1)}%`;
       }
       audio.play();
-
+      circles[index].style.backgroundColor = 'green'; // Change the style of the circle
+      setTimeout(() => {
+        circles[index].style.backgroundColor = ''; // Change the style of the circle
+      }, 1000);
+      owl.trigger('next.owl.carousel')
       clickEnabled = false; // Disable clicking temporarily
       setTimeout(() => {
         clickEnabled = true; // Enable clicking after a short delay
       }, 100);
-
-      owl.trigger('next.owl.carousel');
+      console.log("Answer: ", answer, "Slide Count: ", slideCount);
       if (answer === slideCount - 1) {
-        displayResult();
+        displayResult(); // Display the result
       }
+      // Additional code for your carousel or next question logic
     } else {
-      this.nextElementSibling.style.backgroundColor = 'red';
       wrong.play();
+      circles[index].style.backgroundColor = 'red'; // Change the style of the circle
       setTimeout(() => {
-        this.nextElementSibling.style.backgroundColor = '';
+        circles[index].style.backgroundColor = ''; // Change the style of the circle
       }, 1000);
     }
   });
 });
-
 
 
 resultExit.addEventListener('click', function () {
@@ -139,12 +164,6 @@ function displayResult() {
   resultWrapper.style.display = 'block'; // Show the result
   backdrop.style.display = 'block'; // Show the backdrop
 }
-
-owl.on('changed.owl.carousel', function (event) {
-  if (event.item.index === slideCount - 1 && answer === slideCount) {
-    displayResult();
-  }
-});
 
 // POPUP MODAL
 
