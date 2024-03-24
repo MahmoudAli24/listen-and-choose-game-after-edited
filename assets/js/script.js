@@ -70,12 +70,17 @@ owl.on('changed.owl.carousel', function (event) {
 
 
 owl.on('changed.owl.carousel', function (event) {
-  console.log(event.item.index);
-  if (event.item.index > 0) {
-    startGameBg.style.display = 'none';
-    gameBg.style.display = 'block';
-  }
+  let currentSlide = event.item.index;
+  let slideAudios = document.querySelectorAll('.slide-audio');
+  console.log(currentSlide);
+
+  startGameBg.style.display = currentSlide === 0 ? 'block' : 'none';
+  gameBg.style.display = currentSlide > 0 ? 'block' : 'none';
+
+  slideAudios[currentSlide - 1].play();
+
 });
+
 
 startIcon.addEventListener('click', function () {
   owl.trigger('next.owl.carousel');
@@ -120,8 +125,8 @@ images.forEach((img, index) => {
       circles[index].style.backgroundColor = 'green'; // Change the style of the circle
       setTimeout(() => {
         circles[index].style.backgroundColor = ''; // Change the style of the circle
+        owl.trigger('next.owl.carousel')
       }, 1000);
-      owl.trigger('next.owl.carousel')
       clickEnabled = false; // Disable clicking temporarily
       setTimeout(() => {
         clickEnabled = true; // Enable clicking after a short delay
